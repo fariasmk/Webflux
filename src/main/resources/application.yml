@@ -1,6 +1,6 @@
 spring:
-#  application:
-#    name: 'user'
+  application:
+    name: 'webflux'
   data:
     mongodb:
       uri: mongodb://localhost:27017/Webflux

@@ -3,11 +3,14 @@ package br.com.maikon.webflux.controller.impl;
 import br.com.maikon.webflux.controller.UserController;
 import br.com.maikon.webflux.mapper.UserMapper;
 import br.com.maikon.webflux.model.request.UserRequest;
+import br.com.maikon.webflux.model.response.UserResponse;
+import br.com.maikon.webflux.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController

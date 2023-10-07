@@ -1,6 +1,7 @@
 package br.com.maikon.webflux.controller.impl;
 
 import br.com.maikon.webflux.controller.UserController;
+import br.com.maikon.webflux.mapper.UserMapper;
 import br.com.maikon.webflux.model.request.UserRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

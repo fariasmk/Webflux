@@ -19,9 +19,12 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 @ControllerAdvice
 public class ControllerExceptionHandler {
 
-    @ExceptionHandler(DuplicateKeyException.class)
+    @ExceptionHandler(DuplicateKeyException.class)//Quando tem uma exceção do tipo DuplicateKeyException, e esse metodoque e chamado.
     ResponseEntity<Mono<StandardError>> duplicateKeyException(
             DuplicateKeyException ex, ServerHttpRequest request
+//            A exceção DuplicateKeyException geralmente ocorre em sistemas de gerenciamento de banco de dados (DBMS) ou em
+//            operações relacionadas a estruturas de dados que não permitem chaves duplicadas. Essa exceção indica que uma
+//            tentativa foi feita para adicionar um elemento com uma chave que já existe no contexto específico.
     ) {
         return ResponseEntity.badRequest()
                 .body(Mono.just(
@@ -38,6 +41,9 @@ public class ControllerExceptionHandler {
     @ExceptionHandler(WebExchangeBindException.class)
     public ResponseEntity<Mono<ValidationError>> validationError(
             WebExchangeBindException ex, ServerHttpRequest request
+//            WebExchangeBindException é uma exceção que está associada ao framework Spring WebFlux, que é uma parte do ecossistema Spring
+//            voltada para programação reativa em aplicações web. Essa exceção geralmente está relacionada à validação de dados de solicitações
+//            HTTP.
     ) {
         ValidationError error = new ValidationError(
                 now(), request.getPath().toString(),
@@ -68,7 +74,7 @@ public class ControllerExceptionHandler {
     }
 
 
-    private String verifyDupKey(String message) {
+    private String verifyDupKey(String message) {//Personalisa a menssagem de email duplicado
         if (message.contains("email dup key")) {
             return "E-mail already registered";
         }

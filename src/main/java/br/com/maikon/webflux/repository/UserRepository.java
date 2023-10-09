@@ -24,7 +24,7 @@ public class UserRepository {
     }
 
     public Flux<User> findAll() {
-        return mongoTemplate.findAll(User.class);
+        return mongoTemplate.findAll(User.class);//Analisar Backpressure
     }
 
     public Mono<User> findAndRemove(String id) {

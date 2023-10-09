@@ -12,7 +12,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Constraint(validatedBy = { TrimStringValidator.class })
 @Target(FIELD)
 @Retention(RUNTIME)
-public @interface TrimString {
+public @interface TrimString {//Anotaçao customizada que faz validação de acordo com a classe TrimStringValidator.
 
     String message() default "field cannot have blank spaces at the beginning or at end";
 
